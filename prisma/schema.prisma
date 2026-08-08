@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Pack {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       String
+  includes    String[]
+  featured    Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum EventType {
+  MARIAGE
+  FIANCAILLES
+  HENNA
+  NAISSANCE
+  AUTRE
+}
+
+model GalleryPhoto {
+  id        String    @id @default(cuid())
+  url       String
+  caption   String?
+  eventType EventType
+  order     Int       @default(0)
+  createdAt DateTime  @default(now())
+}
+
+model Booking {
+  id        String    @id @default(cuid())
+  name      String
+  phone     String
+  eventType EventType
+  eventDate DateTime
+  guests    Int
+  message   String?
+  createdAt DateTime  @default(now())
+}
