@@ -37,7 +37,6 @@ export default function Home() {
           Perla Luxury Events
         </h1>
         <p className="relative mt-4 font-[family-name:var(--font-script)] text-2xl italic text-ivory/80 md:text-3xl">
-          by Imane
         </p>
         <div className="flourish-divider relative my-8 w-48 text-xs">✦</div>
         <p className="relative max-w-xl text-ivory/70">
