@@ -11,6 +11,7 @@ export async function POST(request: NextRequest) {
 
   const blob = await put(`gallery/${Date.now()}-${file.name}`, file, {
     access: "public",
+    token: process.env.MEDIA_BLOB_READ_WRITE_TOKEN,
   });
 
   return NextResponse.json({ url: blob.url });
