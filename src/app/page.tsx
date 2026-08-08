@@ -1,69 +1,119 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const services = [
+  {
+    title: "Mariage",
+    desc: "Décoration et buffet raffinés pour le plus beau jour de votre vie.",
+  },
+  {
+    title: "Fiançailles",
+    desc: "Une mise en scène élégante pour célébrer votre engagement.",
+  },
+  {
+    title: "Henné",
+    desc: "Ambiance traditionnelle et festive, sublimée avec goût.",
+  },
+  {
+    title: "Naissance",
+    desc: "Des moments doux et précieux, mis en valeur avec délicatesse.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className="pt-20">
+      {/* Hero */}
+      <section className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-6 text-center">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(201,162,75,0.15),transparent_60%)]" />
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="/logo.png"
+          alt="Perla Luxury Events"
+          width={140}
+          height={140}
+          className="relative mb-8 rounded-full"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <h1 className="relative font-[family-name:var(--font-display)] text-4xl text-gold-light md:text-6xl">
+          Perla Luxury Events
+        </h1>
+        <p className="relative mt-4 font-[family-name:var(--font-script)] text-2xl italic text-ivory/80 md:text-3xl">
+          by Imane
+        </p>
+        <div className="flourish-divider relative my-8 w-48 text-xs">✦</div>
+        <p className="relative max-w-xl text-ivory/70">
+          Buffets et décoration événementielle à Témara, Rabat — pour vos
+          mariages, fiançailles, henné et naissances.
+        </p>
+        <Link
+          href="/reservation"
+          className="relative mt-8 rounded-full border border-gold bg-gold px-8 py-3 text-onyx transition-colors hover:bg-transparent hover:text-gold-light"
+        >
+          Réserver un événement
+        </Link>
+      </section>
+
+      {/* Qui sommes-nous */}
+      <section className="mx-auto max-w-3xl px-6 py-24 text-center">
+        <p className="text-xs uppercase tracking-[0.3em] text-gold">
+          Qui sommes-nous
+        </p>
+        <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl text-ivory md:text-4xl">
+          L&apos;art de sublimer vos instants précieux
+        </h2>
+        <p className="mt-6 leading-relaxed text-ivory/70">
+          Perla Luxury Events est née d&apos;une passion pour les belles
+          célébrations. À Témara, nous accompagnons les familles marocaines
+          dans l&apos;organisation de leurs événements les plus chers, en
+          alliant buffets raffinés et décoration sur-mesure, pour que chaque
+          détail reflète l&apos;élégance et l&apos;émotion du moment.
+        </p>
+      </section>
+
+      {/* Services */}
+      <section className="bg-charcoal px-6 py-24">
+        <div className="mx-auto max-w-6xl">
+          <p className="text-center text-xs uppercase tracking-[0.3em] text-gold">
+            Nos prestations
           </p>
+          <h2 className="mt-4 text-center font-[family-name:var(--font-display)] text-3xl text-ivory md:text-4xl">
+            Un accompagnement pour chaque occasion
+          </h2>
+
+          <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((s) => (
+              <div
+                key={s.title}
+                className="rounded-2xl border border-gold/20 bg-onyx p-8 text-center transition-colors hover:border-gold/50"
+              >
+                <h3 className="font-[family-name:var(--font-display)] text-xl text-gold-light">
+                  {s.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-ivory/60">
+                  {s.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
+
+      {/* Contact */}
+      <section className="mx-auto max-w-2xl px-6 py-24 text-center">
+        <p className="text-xs uppercase tracking-[0.3em] text-gold">
+          Contactez-nous
+        </p>
+        <h2 className="mt-4 font-[family-name:var(--font-display)] text-3xl text-ivory md:text-4xl">
+          Parlons de votre événement
+        </h2>
+        <p className="mt-6 text-ivory/70">Témara · Rabat, Maroc</p>
+        <p className="mt-2 text-ivory/70">WhatsApp : 06 32 60 40 84</p>
+        <Link
+          href="/reservation"
+          className="mt-8 inline-block rounded-full border border-gold px-8 py-3 text-gold-light transition-colors hover:bg-gold hover:text-onyx"
+        >
+          Faire une demande
+        </Link>
+      </section>
     </div>
   );
 }
